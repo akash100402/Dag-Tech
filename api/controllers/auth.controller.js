@@ -57,7 +57,7 @@ export const signin = async (req, res, next) => {
     if (!validPassword) {
       return next(errorHandler(400, "Invalid password"));
     }
-
+ 
     //add cookies for browser
     const token = jwt.sign(
       { id: validUser._id, isAdmin: validUser.isAdmin },
