@@ -16,7 +16,7 @@ export default function Header() {
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-bold dark:text-white"
        >
-        <span className="tracking-widest font-bold px-3 py-2 bg-gradient-to-r from-red-700 via-black to-gray-700 rounded-lg mr-1 text-white">
+        <span className="tracking-widest font-bold px-3 py-2 bg-gradient-to-r from-red-700 via-black to-gray-500 rounded-lg mr-1 text-white">
           DAG{" "}
         </span>
         Tech
