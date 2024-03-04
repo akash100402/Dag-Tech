@@ -68,6 +68,8 @@ export const deleteUser = async (req, res, next) => {
   }
 };
 
+//signout user
+
 export const signout = (req, res, next) => {
   try {
     res
@@ -78,6 +80,8 @@ export const signout = (req, res, next) => {
     next(error);
   }
 };
+
+//get current user
 
 export const getUsers = async (req, res, next) => {
   if (!req.user.isAdmin) {
