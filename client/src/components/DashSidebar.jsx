@@ -6,7 +6,9 @@ import {
   HiOutlineUserGroup,
   HiAnnotation,
   HiChartPie,
+
 } from "react-icons/hi";
+import { FaFileWaveform } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { signoutSuccess } from "../redux/user/userSlice";
@@ -73,7 +75,7 @@ export default function DashSidebar() {
                 icon={HiDocumentText}
                 as="div"
               >
-                Posts
+                Projects
               </Sidebar.Item>
             </Link>
           )}
@@ -94,7 +96,21 @@ export default function DashSidebar() {
                   icon={HiAnnotation}
                   as="div"
                 >
-                  Comments
+                  Alterations
+                </Sidebar.Item>
+              </Link>
+            </>
+          )}
+
+          {currentUser.isEmployee && (
+            <>
+              <Link to="/apply-leave/">
+                <Sidebar.Item
+                  active={tab === "leave"}
+                  icon={FaFileWaveform}
+                  as="div"
+                >
+                  Apply for Leave
                 </Sidebar.Item>
               </Link>
             </>

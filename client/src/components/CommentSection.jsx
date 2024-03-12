@@ -141,15 +141,15 @@ export default function CommentSection({ postId }) {
           className="border border-teal-500 rounded-md p-3"
         >
           <Textarea
-            placeholder="Add a comment..."
+            placeholder="Request Customization to the project..."
             rows="3"
-            maxLength="200"
+            maxLength="500"
             onChange={(e) => setComment(e.target.value)}
             value={comment}
           />
           <div className="flex justify-between items-center mt-5">
             <p className="text-gray-500 text-xs">
-              {200 - comment.length} characters remaining
+              {500 - comment.length} characters remaining
             </p>
             <Button outline gradientDuoTone="purpleToBlue" type="submit">
               Submit
@@ -163,7 +163,7 @@ export default function CommentSection({ postId }) {
         </form>
       )}
       {comments.length === 0 ? (
-        <p className="text-sm my-5">No comments yet!</p>
+        <p className="text-sm my-5">No Alteration from client</p>
       ) : (
         <>
           <div className="text-sm my-5 flex items-center gap-1">
@@ -197,7 +197,7 @@ export default function CommentSection({ postId }) {
           <div className="text-center">
             <HiOutlineExclamationCircle className="h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto" />
             <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400">
-              Are you sure you want to delete this comment?
+              Are you sure you want to delete this Suggestion?
             </h3>
             <div className="flex justify-center gap-4">
               <Button

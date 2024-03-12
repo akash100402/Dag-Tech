@@ -248,7 +248,19 @@ export default function DashProfile() {
               gradientDuoTone="purpleToPink"
               className="w-full"
             >
-              Create a post
+              Add New Project
+            </Button>
+          </Link>
+        )}
+
+        {currentUser.isEmployee && (
+          <Link to={"/apply-leave"}>
+            <Button
+              type="button"
+              gradientDuoTone="greenToBlue"
+              className="w-full"
+            >
+              Apply for Leave
             </Button>
           </Link>
         )}
