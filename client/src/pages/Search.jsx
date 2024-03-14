@@ -130,10 +130,12 @@ export default function Search() {
               value={sidebarData.category}
               id="category"
             >
-              <option value="uncategorized">Uncategorized</option>
-              <option value="reactjs">React.js</option>
-              <option value="nextjs">Next.js</option>
-              <option value="javascript">JavaScript</option>
+              <option value="uncategorized">Select a category</option>
+              <option value="Full-Stack">Full stack</option>
+              <option value="Mobile-Application">Mobile App Development</option>
+              <option value="Graphic-Design">Graphic Design</option>
+              <option value="Game-Development">Game Development</option>
+              <option value="Product-Testing">Testing</option>
             </Select>
           </div>
           <Button type="submit" outline gradientDuoTone="purpleToPink">
@@ -143,11 +145,11 @@ export default function Search() {
       </div>
       <div className="w-full">
         <h1 className="text-3xl font-semibold sm:border-b border-gray-500 p-3 mt-5 ">
-          Posts results:
+          All Projects
         </h1>
-        <div className="p-7 flex flex-wrap gap-4">
+        <div className="p-7 flex justify-center flex-wrap gap-4">
           {!loading && posts.length === 0 && (
-            <p className="text-xl text-gray-500">No posts found.</p>
+            <p className="text-xl text-gray-500">No projects found.</p>
           )}
           {loading && <p className="text-xl text-gray-500">Loading...</p>}
           {!loading &&

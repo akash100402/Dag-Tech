@@ -61,7 +61,7 @@ export default function DashSidebar() {
             <Sidebar.Item
               active={tab === "profile"}
               icon={HiUser}
-              label={currentUser.isAdmin ? "Admin" : "User"}
+              label={currentUser.isAdmin ? "Employee" : "User"}
               labelColor="dark"
               as="div"
             >
@@ -102,15 +102,15 @@ export default function DashSidebar() {
             </>
           )}
 
-          {currentUser.isEmployee && (
+          {currentUser.isAdmin && (
             <>
-              <Link to="/apply-leave/">
+              <Link to="/dashboard?tab=leaves">
                 <Sidebar.Item
-                  active={tab === "leave"}
+                  active={tab === "leaves"}
                   icon={FaFileWaveform}
                   as="div"
                 >
-                  Apply for Leave
+                  Leave Request Status
                 </Sidebar.Item>
               </Link>
             </>

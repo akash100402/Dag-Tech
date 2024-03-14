@@ -246,6 +246,7 @@ export default function DashProfile() {
             <Button
               type="button"
               gradientDuoTone="purpleToPink"
+              outline
               className="w-full"
             >
               Add New Project

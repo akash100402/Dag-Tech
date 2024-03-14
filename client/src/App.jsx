@@ -16,6 +16,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Search from "./pages/Search";
 import OnlyEmployeePrivateRoute from "./components/OnlyEmployeePrivateRoute";
 import ApplyLeave from "./pages/ApplyLeave";
+import JobOpenning from "./pages/JobOpenning";
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/job-openning" element={<JobOpenning/>} />
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
@@ -35,9 +37,9 @@ export default function App() {
           <Route path="/create-post" element={<CreatePost />} />
           <Route path="/update-post/:postId" element={<UpdatePost />} />
         </Route>
-        <Route element={<OnlyEmployeePrivateRoute />}>
+        <Route element={<OnlyAdminPrivateRoute />}>
           <Route path="/apply-leave" element={<ApplyLeave />} />
-          {/* <Route path="/update-post/:postId" element={<UpdatePost />} /> */}
+
         </Route>
 
         <Route path="/projects" element={<Projects />} />

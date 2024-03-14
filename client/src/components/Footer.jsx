@@ -73,13 +73,22 @@ export default function FooterCom() {
             year={new Date().getFullYear()}
           />
           <div className="flex gap-6 sm:mt-0 mt-4 sm:justify-center">
-            {/* <Footer.Icon href="#" icon={BsFacebook} />
-            <Footer.Icon href="#" icon={BsInstagram} />
-            <Footer.Icon href="#" icon={BsLinkedin} />
             <Footer.Icon
-              href="#"
+              href="https://www.facebook.com/thala.akash.39982"
+              icon={BsFacebook}
+            />
+            <Footer.Icon
+              href="https://www.instagram.com/_aakash_.10._/?hl=en"
+              icon={BsInstagram}
+            />
+            <Footer.Icon
+              href="https://www.linkedin.com/in/akash-aj10/"
+              icon={BsLinkedin}
+            />
+            <Footer.Icon
+              href="https://github.com/akash100402"
               icon={BsGithub}
-            /> */}
+            />
             <Footer.Icon
               href="https://akash10aj-portfolio.netlify.app/"
               icon={IoIosContact}

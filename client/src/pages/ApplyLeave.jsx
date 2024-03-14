@@ -1,7 +1,5 @@
+import { useState } from "react";
 import { Alert, Button, FileInput, TextInput } from "flowbite-react";
-import React, { useState } from "react";
-import { CircularProgressbar } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
 import {
   getDownloadURL,
   getStorage,
@@ -9,24 +7,28 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import { app } from "../firebase";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
-export default function CreatePost() {
-  const [file, setFile] = useState(null);
+export default function ApplyLeave() {
+  const navigate = useNavigate();
+  const [reason, setReason] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [pdfFile, setPdfFile] = useState(null);
   const [pdfUploadProgress, setPdfUploadProgress] = useState(null);
   const [pdfUploadError, setPdfUploadError] = useState(null);
-  const [fromDate, setFromDate] = useState("");
-  const [toDate, setToDate] = useState("");
-  const [formData, setFormData] = useState({});
+  const [description, setDescription] = useState("");
   const [publishError, setPublishError] = useState(null);
 
-  const navigate = useNavigate();
-
-  const handleUploadPdf = async () => {
+  const handlePdfUpload = async (e) => {
     try {
+      const file = e.target.files[0];
       if (!file) {
-        setPdfUploadError("Please select a PDF document");
+        setPdfUploadError("Please select a PDF file");
         return;
       }
       setPdfUploadError(null);
@@ -42,46 +44,50 @@ export default function CreatePost() {
           setPdfUploadProgress(progress.toFixed(0));
         },
         (error) => {
-          setPdfUploadError("Document upload failed");
+          setPdfUploadError("PDF upload failed");
           setPdfUploadProgress(null);
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             setPdfUploadProgress(null);
             setPdfUploadError(null);
-            setFormData({ ...formData, pdf: downloadURL }); // Update formData with the PDF URL
+            setPdfFile(downloadURL);
           });
         }
       );
     } catch (error) {
-      setPdfUploadError("Document upload failed");
+      setPdfUploadError("PDF upload failed");
       setPdfUploadProgress(null);
-      console.log(error);
+      console.error(error);
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("/api/post/create", {
+      const res = await fetch("/api/leave/new-leave", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ...formData, fromDate, toDate }),
+        body: JSON.stringify({
+          reason,
+          startDate,
+          endDate,
+          pdfUrl: pdfFile,
+          description,
+        }),
       });
       const data = await res.json();
       if (!res.ok) {
-        setPublishError(data.message);
+        setPublishError(data.error || "An error occurred.");
         return;
       }
-
-      if (res.ok) {
-        setPublishError(null);
-        navigate(`/post/${data.slug}`);
-      }
+      setPublishError(null);
+      navigate(`/leave/${data.slug}`);
     } catch (error) {
       setPublishError("Something went wrong");
+      console.error(error);
     }
   };
 
@@ -94,39 +100,42 @@ export default function CreatePost() {
         <TextInput
           type="text"
           placeholder="Reason"
+          value={reason}
+          onChange={(e) => setReason(e.target.value)}
           required
-          id="title"
+          id="reason"
           className="flex-1"
-          onChange={(e) => setFormData({ ...formData, title: e.target.value })}
         />
         <div className="flex gap-4 items-center justify-between">
           <TextInput
             type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            id="startDate"
             placeholder="From Date"
             required
-            value={fromDate}
-            onChange={(e) => setFromDate(e.target.value)}
           />
           <TextInput
             type="date"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+            id="endDate"
             placeholder="To Date"
             required
-            value={toDate}
-            onChange={(e) => setToDate(e.target.value)}
           />
         </div>
         <div className="flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3">
           <FileInput
+            id="pdfUrl"
             type="file"
             accept=".pdf"
-            onChange={(e) => setFile(e.target.files[0])}
+            onChange={handlePdfUpload}
           />
           <Button
             type="button"
             gradientDuoTone="purpleToBlue"
             size="sm"
             outline
-            onClick={handleUploadPdf}
             disabled={pdfUploadProgress}
           >
             {pdfUploadProgress ? (
@@ -141,24 +150,22 @@ export default function CreatePost() {
             )}
           </Button>
         </div>
-        {/* {pdfUploadError && <Alert color="failure">{pdfUploadError}</Alert>}
-        {formData.pdf && (
-          <div className="w-full h-72 overflow-hidden">
-            <embed
-              src={formData.pdf}
-              type="application/pdf"
-              width="100%"
-              height="100%"
-            />
+        {pdfUploadError && <Alert color="failure">{pdfUploadError}</Alert>}
+        {pdfFile && (
+          <div>
+            <p>PDF uploaded successfully:</p>
+            <p>{pdfFile}</p>
           </div>
-        )} */}
-        <ReactQuill theme="snow" placeholder="Write something..." className="h-72
-        mb-12" required onChange=
-        {(value) => {
-          setFormData({ ...formData, content: value });
-        }}
+        )}
+        <ReactQuill
+          theme="snow"
+          placeholder="Write something..."
+          className="h-72 mb-12"
+          value={description}
+          onChange={setDescription}
+          required
         />
-        <Button type="submit" gradientDuoTone="purpleToPink">
+        <Button type="submit" gradientDuoTone="greenToBlue">
           Request
         </Button>
         {publishError && (
