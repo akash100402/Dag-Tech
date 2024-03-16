@@ -16,12 +16,13 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className="min-h-screen max-w-full mx-auto flex justify-around items-center flex-col gap-6 py-3 px-52">
-      <h1 className="text-3xl font-semibold">Projects</h1>
-      <p className="text-md text-gray-500">
-        Providing Seamless IT Services, Every Step of the Way
-      </p>
-
+    <div>
+      <div className=" w-full mx-auto flex justify-around items-center flex-col gap-4 py-3 ">
+        <h1 className="text-3xl font-semibold">Projects</h1>
+        <p className="text-md text-gray-500">
+          Providing Seamless IT Services, Every Step of the Way
+        </p>
+      </div>
       <div className="max-w-6xl mx-auto p-3 flex flex-col gap-8 py-7">
         {posts && posts.length > 0 && (
           <div className="flex flex-col gap-6">
