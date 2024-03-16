@@ -60,13 +60,13 @@ export default function EasyApplyForm() {
             {" "}
             {/* Add margin-bottom class */}
             Knowledge of authentication and authorization mechanisms such as
-            <span className="text-lime-500">JWT</span>.
+            <span className="text-lime-500"> JWT</span>.
           </li>
           <li>
             {" "}
             {/* No margin-bottom class for the last item */}
             Familiarity with serverless architectures and cloud platforms like
-            <span className="text-lime-500">AWS or Azure is a plus</span>.
+            <span className="text-lime-500"> AWS or Azure is a plus</span>.
           </li>
         </ul>
       </div>
