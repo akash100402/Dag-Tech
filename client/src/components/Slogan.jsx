@@ -2,11 +2,14 @@ import React from "react";
 
 const CompanyHeader = () => {
   return (
-    <div className="bg-gray-200 text-black py-6 px-4 rounded-lg mb-4 md:px-8">
-      <div className="container mx-auto">
-        <h1 className="text-3xl md:text-6xl font-bold ">DAG TECHNOLOGIES</h1>
-        <p className="text-lg md:text-3xl mt-2">
-          Your Tech, <span className="text-violet-600">Our Expertise</span>
+    <div className="bg-gradient-to-r from-blue-300 to-blue-500 text-white py-8 px-6 rounded-lg mb-8 md:px-12 shadow-lg">
+      <div className="container mx-auto text-center">
+        <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+          DAG TECHNOLOGIES
+        </h1>
+        <p className="text-lg md:text-2xl mt-2">
+          Your <span className="text-yellow-300">Tech</span>,
+          Our <span className="text-yellow-300">Expertise</span>
         </p>
       </div>
     </div>

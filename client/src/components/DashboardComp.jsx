@@ -164,7 +164,7 @@ export default function DashboardComp() {
           <Table hoverable>
             <Table.Head>
               <Table.HeadCell>Aterations content</Table.HeadCell>
-              <Table.HeadCell>Likes</Table.HeadCell>
+              {/* <Table.HeadCell>Likes</Table.HeadCell> */}
             </Table.Head>
             {comments &&
               comments.map((comment) => (
@@ -173,7 +173,7 @@ export default function DashboardComp() {
                     <Table.Cell className="w-96">
                       <p className="line-clamp-2">{comment.content}</p>
                     </Table.Cell>
-                    <Table.Cell>{comment.numberOfLikes}</Table.Cell>
+                    {/* <Table.Cell>{comment.numberOfLikes}</Table.Cell> */}
                   </Table.Row>
                 </Table.Body>
               ))}
