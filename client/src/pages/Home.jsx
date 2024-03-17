@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import PostCard from "../components/PostCard";
 import BannerSlide from "../components/BannerSlide";
 import CompanyHeader from "../components/Slogan";
+import NumberIncreaser from "../components/NumberIncreaser";
 
 
 export default function Home() {
@@ -20,10 +21,13 @@ export default function Home() {
   }, []);
   return (
     <div>
+      <div className="h-screen">
+        <CompanyHeader />
+      </div>
+
       <div className="flex flex-col gap-6 p-12 px-3 max-w-6xl mx-auto ">
         <BannerSlide />
-        <CompanyHeader />
-    
+
         <div className="px-6 md:px-14"></div>
 
         <Link
@@ -36,6 +40,7 @@ export default function Home() {
       <div className="p-3 px-12 bg-amber-100 sm:px-28 dark:bg-slate-700">
         <CallToAction />
       </div>
+      <NumberIncreaser />
 
       <div className="w-full mx-auto  p-3 flex  flex-col gap-8 py-7">
         {posts && posts.length > 0 && (
