@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CallToAction from "../components/CallToAction";
 import { useEffect, useState } from "react";
 import PostCard from "../components/PostCard";
-import BannerSlide from "../components/BannerSlide";
+
 import CompanyHeader from "../components/Slogan";
 import NumberIncreaser from "../components/NumberIncreaser";
 
@@ -26,7 +26,7 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col gap-6 p-12 px-3 max-w-6xl mx-auto ">
-        <BannerSlide />
+        
 
         <div className="px-6 md:px-14"></div>
 

@@ -25,7 +25,7 @@ const BannerSlide = () => {
 
 
   return (
-    <div className="banner-slide" id="banner">
+    <div className="w-10/12 mx-auto mt-10 md:w-8/12" id="banner">
       <Slider {...settings}>
         <div>
           <img src={image1} alt="Slide 1" />

@@ -6,6 +6,7 @@ import LottieAbout from "../components/Lottie/LottieAbout"
 import LottieValues from "../components/Lottie/LottieValues";
 import LottieExpertise from "../components/Lottie/LottieExpertise";
 import LottieApart from "../components/Lottie/LottieApart";
+import BannerSlide from "../components/BannerSlide"
 
 
 export default function About() {
@@ -22,7 +23,8 @@ export default function About() {
   }, []);
   return (
     <div>
-      <div className="flex flex-col gap-y-8 p-28 px-3 max-w-6xl mx-auto lg:gap-y-32">
+      <BannerSlide />
+      <div className="flex flex-col gap-y-8 p-20 px-3 max-w-6xl mx-auto lg:gap-y-32">
         <div className="flex items-center justify-around">
           <div>
             <h1 className="text-3xl font-bold mb-3 lg:text-6xl">About Us</h1>
@@ -103,10 +105,7 @@ export default function About() {
           </div>
           <LottieApart />
         </div>
-
-       
       </div>
-      
     </div>
   );
 }
