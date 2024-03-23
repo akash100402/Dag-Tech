@@ -129,7 +129,7 @@ export default function CommentSection({ postId }) {
         </div>
       ) : (
         <div className="text-sm text-teal-500 my-5 flex gap-1">
-          You must be signed in to comment.
+          You must be signed in.
           <Link className="text-blue-500 hover:underline" to={"/sign-in"}>
             Sign In
           </Link>
@@ -167,7 +167,7 @@ export default function CommentSection({ postId }) {
       ) : (
         <>
           <div className="text-sm my-5 flex items-center gap-1">
-            <p>Comments</p>
+            <p>Requested Alterations</p>
             <div className="border border-gray-400 py-1 px-2 rounded-sm">
               <p>{comments.length}</p>
             </div>
