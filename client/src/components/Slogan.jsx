@@ -2,9 +2,9 @@ import React from "react";
 
 const CompanyHeader = () => {
   return (
-    <div className="h-screen  text-white py-8 px-6 rounded-lg mb-8 md:px-12 shadow-lg items-center flex bg-gradient-to-r from-blue-800 to-pink-800">
+    <div className="h-auto py-40 text-white   md:h-screen md:px-12 shadow-lg items-center flex bg-gradient-to-r from-blue-800 to-pink-800">
       <div className="container mx-auto text-center">
-        <h1 className="text-6xl md:text-8xl font-bold leading-tight">
+        <h1 className="text-4xl md:text-8xl font-bold leading-tight">
           DAG TECHNOLOGIES
         </h1>
         <p className="text-4xl font-bold md:text-6xl mt-2">

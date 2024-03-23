@@ -21,21 +21,14 @@ export default function Home() {
   }, []);
   return (
     <div>
-      <div className="h-screen">
+      <div className="md:h-screen">
         <CompanyHeader />
       </div>
 
-      <div className="flex flex-col gap-6 p-12 px-3 max-w-6xl mx-auto ">
+      <div className="flex flex-col gap-6 p-4 md:p-12 px-3 max-w-6xl mx-auto ">
         
 
-        <div className="px-6 md:px-14"></div>
-
-        <Link
-          to="/search"
-          className="text-xs sm:text-sm text-teal-500 font-bold hover:underline"
-        >
-          View all Projects
-        </Link>
+      
       </div>
       <div className="p-3 px-12 bg-amber-100 sm:px-28 dark:bg-slate-700">
         <CallToAction />
