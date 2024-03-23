@@ -90,7 +90,7 @@ export default function FooterCom() {
               icon={BsGithub}
             />
             <Footer.Icon
-              href="https://akash10aj-portfolio.netlify.app/"
+              href="https://akashs-portfolio.onrender.com/"
               icon={IoIosContact}
             />
           </div>
