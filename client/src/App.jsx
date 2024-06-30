@@ -14,7 +14,7 @@ import UpdatePost from "./pages/UpdatePost";
 import PostPage from "./pages/PostPage";
 import ScrollToTop from "./components/ScrollToTop";
 import Search from "./pages/Search";
-import OnlyEmployeePrivateRoute from "./components/OnlyEmployeePrivateRoute";
+// import OnlyEmployeePrivateRoute from "./components/OnlyEmployeePrivateRoute";
 import ApplyLeave from "./pages/ApplyLeave";
 import JobOpenning from "./pages/JobOpenning";
 

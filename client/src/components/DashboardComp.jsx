@@ -2,12 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { GiMightySpanner } from "react-icons/gi";
 import { MdDevicesOther } from "react-icons/md";
-import {
-  HiAnnotation,
-  HiArrowNarrowUp,
-  HiDocumentText,
-  HiOutlineUserGroup,
-} from "react-icons/hi";
+import { HiArrowNarrowUp, HiOutlineUserGroup } from "react-icons/hi";
 import { Button, Table } from "flowbite-react";
 import { Link } from "react-router-dom";
 
